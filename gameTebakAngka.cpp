@@ -13,7 +13,7 @@ int main () {
 
     //perulangan untuk menebak angka
     do {
-        cout << "Masukkan tebakanmu ";
+        cout << "Masukkan tebakanmu: ";
         cin >> tebakan;
         jumlahCoba++;
 
@@ -22,12 +22,12 @@ int main () {
         } else if (tebakan < angkaRahasia) {
             cout << "Tebakanmu terlalu kecil, WOK! Coba Lagi." << endl;
         } else {
-            cout << "Anjay! Tebakan lu bener WOK: " << angkaRahasia << " percobaan!" << endl;
+            cout << "Anjay! Tebakan lu bener WOK: " << angkaRahasia << endl;
             cout << "Jumlah percobaan: " << jumlahCoba << " kali" << endl;
         }   
 
     } while (tebakan != angkaRahasia);
 
-    
+
     return 0;
 }
