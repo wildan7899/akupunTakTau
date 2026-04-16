@@ -1,0 +1,55 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    srand(time(0));
+    int angkaRahasia = rand() % 100 + 1;
+    int tebakan;
+    int nyawa = 7; // Kita kasih 7 nyawa
+    int percobaan = 0;
+
+    cout << "=======================================" << endl;
+    cout << "       GAME TEBAK ANGKA (1-100)        " << endl;
+    cout << "   Kamu punya 7 nyawa. Gunakan bijak!  " << endl;
+    cout << "=======================================" << endl;
+
+    while (nyawa > 0) {
+        cout << "\n[Nyawa: " << nyawa << "] Masukkan angka: ";
+        cin >> tebakan;
+
+        // Validasi input
+        if (tebakan < 1 || tebakan > 100) {
+            cout << "Woi! Angkanya antara 1 sampe 100 aja!" << endl;
+            continue; // Skip sisa kode di bawah, balik ke awal loop
+        }
+
+        percobaan++;
+        
+        if (tebakan == angkaRahasia) {
+            cout << "\nANJAY, WOK! Angkanya emang " << angkaRahasia << endl;
+            
+            // Komentar berdasarkan performa
+            if (percobaan <= 3) cout << "Rank: IMPOSTOR! (Hoki atau Jenius nih?)" << endl;
+            else if (percobaan <= 5) cout << "Rank: ELITE! (Lumayan jago)" << endl;
+            else cout << "Rank: SILVER! (Yang penting menang lah ye)" << endl;
+            
+            return 0; // Langsung selesai
+        } 
+        else {
+            nyawa--; // Kurangi nyawa kalau salah
+            if (tebakan > angkaRahasia) {
+                cout << "Ketinggian! Turunin dikit." << endl;
+            } else {
+                cout << "Kerendahan! Naikin lagi." << endl;
+            }
+        }
+
+        if (nyawa == 0) {
+            cout << "\nGAME OVER, WOK!" << endl;
+            cout << "Angka rahasianya padahal: " << angkaRahasia << endl;
+            cout << "........................." << endl;
+        }
+    }
+
+    return 0;
+}
